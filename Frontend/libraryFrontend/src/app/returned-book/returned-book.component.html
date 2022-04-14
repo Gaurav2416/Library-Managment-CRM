@@ -1,0 +1,82 @@
+<form [formGroup]="AddIssuedForm" (ngSubmit)="onsubmit()">
+    <h2 mat-dialog-title>Return Issued Book
+        <mat-dialog-actions align="End">
+            <button mat-button mat-dialog-close>
+                X
+            </button>
+        </mat-dialog-actions>
+    </h2>
+    
+    <mat-dialog-content class="mat-typography">
+        <div fxLayout="row wrap" fxFlexFill fxLayoutAlign="start start" fxLayoutGap="20px grid">
+            <div fxFlex="19.3">
+                <mat-form-field appearance="outline">
+                    <mat-label>staffid</mat-label>
+                    <input matInput placeholder="ID" type="text" formControlName="staffid">
+                </mat-form-field>
+            </div>
+            <div fxFlex="66.7">
+                <mat-form-field appearance="outline">
+                    <mat-label>Book ID</mat-label>
+                    <input matInput placeholder="FormControl 2" type="text" formControlName="bookid">
+                </mat-form-field>&nbsp;&nbsp;&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-label>Visitor ID</mat-label>
+                    <input matInput placeholder="FormControl 2" type="text" formControlName="visitorid">
+                </mat-form-field>
+            </div>
+            <div fxFlex="33.3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="FormControl 4" type="text" formControlName="booktitle">
+                </mat-form-field>
+            </div>
+            <div fxFlex="66.7">
+                <mat-form-field appearance="outline">
+                    <mat-label>Author</mat-label>
+                    <input matInput placeholder="FormControl 4" type="text" formControlName="author">
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-label>No of Books</mat-label>
+                    <input matInput placeholder="FormControl 4" type="text" formControlName="noofbooks" type="number">
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field appearance="fill">
+                    <mat-label>Generated Date</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="issueddate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                &nbsp;&nbsp;&nbsp;
+                <mat-form-field appearance="fill">
+                    <mat-label>Notice Date</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="noticedate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field appearance="fill">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="picker3" formControlName="enddate">
+                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                    <mat-datepicker #picker3></mat-datepicker>  
+                </mat-form-field>
+            </div>
+            <div fxFlex="50">
+                <mat-form-field appearance="fill">
+                    <mat-label>Retruned Date</mat-label>
+                    <input matInput [matDatepicker]="picker4" formControlName="returnedDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                    <mat-datepicker #picker4></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="End">
+        <button mat-raised-button >
+            Returned
+        </button>
+    </mat-dialog-actions>
+</form>

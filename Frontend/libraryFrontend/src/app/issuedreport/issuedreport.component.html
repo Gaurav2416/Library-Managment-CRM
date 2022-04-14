@@ -1,0 +1,27 @@
+
+
+    <h2 mat-dialog-title>Isseud Details
+        <mat-dialog-actions align="End">
+            <button mat-button mat-dialog-close>
+                X
+            </button>
+        </mat-dialog-actions>
+    </h2>
+    
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table"> -->
+            <ng-container matColumnDef="count">
+                <th mat-header-cell *matHeaderCellDef> Satff ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+            </ng-container>
+            <ng-container matColumnDef="visitorid">
+                <th mat-header-cell *matHeaderCellDef> Visitor ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.visitorid}} </td>
+            </ng-container>
+            <ng-container matColumnDef="issueddate">
+                <th mat-header-cell *matHeaderCellDef> Issued Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.issueddate | date:'dd-MMM-yy'}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    

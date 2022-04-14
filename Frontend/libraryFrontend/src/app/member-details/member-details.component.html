@@ -1,0 +1,89 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>Library Management</h1>
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button [routerLink]="'/staff'"> Staff </a>
+            <a mat-button [routerLink]="'/employee'"> Employess </a>
+            <a mat-button [routerLink]="'/guest'"> Guest </a>
+            <a mat-button [routerLink]="'/dependent'"> Dependent </a>
+            <a mat-button [routerLink]="'/visitor'"> Visiting Details </a>
+            <a mat-button [routerLink]="'/issuedBook'"> Book Loaned </a>
+            <a mat-button [routerLink]="'/inventory'"> Inventory </a>
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="demo-button-container">
+    <button mat-raised-button (click)="dialogModalNavigate()" class="demo-button">
+        Add data
+    </button>
+    <!-- <button
+        mat-raised-button
+        [disabled]="!dataSource.length"
+        (click)="removeData()"
+        class="demo-button">
+      Remove data
+    </button> -->
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Firstname">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Lastname">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+    <ng-container matColumnDef="homemail">
+        <th mat-header-cell *matHeaderCellDef> Home Mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.homemail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="campusmail">
+        <th mat-header-cell *matHeaderCellDef> Campus Mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.campusmail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="generatedate">
+        <th mat-header-cell *matHeaderCellDef> Generate Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.generatedate | date:'MM/dd/yyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="noticedate">
+        <th mat-header-cell *matHeaderCellDef> Notice Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.noticedate | date:'MM/dd/yyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="enddate">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.enddate | date:'MM/dd/yyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="employeeid">
+        <th mat-header-cell *matHeaderCellDef> Employee ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.employeeid}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Renew </th>
+        <td mat-cell *matCellDef="let element"> <button mat-icon-button aria-label="Example icon button with a open in new tab icon" (click)="getElement(element)">
+            <mat-icon>open_in_new</mat-icon>
+          </button> </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

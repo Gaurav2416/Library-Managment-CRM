@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>Library Management</h1>
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button [routerLink]="'/staff'"> Staff </a>
+            <a mat-button [routerLink]="'/member'"> Member </a>
+            <a mat-button [routerLink]="'/guest'"> Guest </a>
+            <a mat-button [routerLink]="'/dependent'"> Dependent </a>
+            <a mat-button [routerLink]="'/visitor'"> Visiting Details </a>
+            <a mat-button [routerLink]="'/issuedBook'"> Book Loaned </a>
+            <a mat-button [routerLink]="'/inventory'"> Inventory </a>
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Firstname">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Lastname">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="ssn">
+        <th mat-header-cell *matHeaderCellDef> SSN </th>
+        <td mat-cell *matCellDef="let element"> {{element.ssn}} </td>
+    </ng-container>
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+    <ng-container matColumnDef="othermail">
+        <th mat-header-cell *matHeaderCellDef> Other Mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.othermail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="campusmail">
+        <th mat-header-cell *matHeaderCellDef> Campusmail </th>
+        <td mat-cell *matCellDef="let element"> {{element.campusmail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+    <ng-container matColumnDef="joindate">
+        <th mat-header-cell *matHeaderCellDef> JoinDate </th>
+        <td mat-cell *matCellDef="let element"> {{element.joindate | date:'MM/dd/yyy'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="enddate">
+        <th mat-header-cell *matHeaderCellDef> Expire </th>
+        <td mat-cell *matCellDef="let element"> {{element.enddate | date:'MM/dd/yyy'}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

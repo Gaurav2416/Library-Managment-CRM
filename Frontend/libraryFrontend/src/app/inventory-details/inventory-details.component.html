@@ -1,0 +1,63 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>Library Management</h1>
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button [routerLink]="'/staff'"> Staff </a>
+            <a mat-button [routerLink]="'/member'"> Member </a>
+            <a mat-button [routerLink]="'/employee'"> Employess </a>
+            <a mat-button [routerLink]="'/guest'"> Guest </a>
+            <a mat-button [routerLink]="'/dependent'"> Dependent </a>
+            <a mat-button [routerLink]="'/visitor'"> Visiting Details </a>
+            <a mat-button [routerLink]="'/issuedBook'"> Book Loaned </a>
+            <!-- <a mat-button [routerLink]="'/inventory'"> Inventory </a> -->
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="demo-button-container">
+    <button mat-raised-button (click)="dialogModalNavigate()" class="demo-button">
+        Add data
+    </button>
+    <!-- <button
+        mat-raised-button
+        [disabled]="!dataSource.length"
+        (click)="removeData()"
+        class="demo-button">
+      Remove data
+    </button> -->
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table"> -->
+    <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef> Author </th>
+        <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+    <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Subject </th>
+        <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+    </ng-container>
+    <ng-container matColumnDef="desription">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.desription}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
